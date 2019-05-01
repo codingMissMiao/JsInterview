@@ -1,8 +1,10 @@
 * 题目分析
     * day1 **函数作用域**(#1)
 <h2 id="1">函数作用域</h2>
+## 题目分析
 - 题目是下面控制台将打印什么？
     - 我自己先测试来一遍，和结果！注意查看。
+
 ```js
 //  题意是下面输入结果分别是：
  var num1 = 60 ;
@@ -26,3 +28,4 @@
 
  // 这个题目看起来很简单，但是带着带着一些坑！
 ```
+![](https://github.com/yaogengzhu/JavaScript-Interview-question/blob/master/images/WX20190501-225840@2x.png?raw=true)
