@@ -91,4 +91,4 @@ console.log(p.name); // 'ls'
 **因此当我们要访问堆内存中的引用数据类型时，实际上我们首先是从栈中获取了该对象的地址引用（或者地址指针），然后再从堆内存中取得我们需要的数据**
 [特别有用的参考](https://juejin.im/entry/589c29a9b123db16a3c18adf)
 #### 分析到这里，我想已经明白了上面那一道题的具体思路了，如果不了解，下附一张图：
-!['栈和堆']('https://github.com/yaogengzhu/JsInterview/blob/master/images/README.png')
+!['栈和堆'](https://github.com/yaogengzhu/JsInterview/blob/master/images/README.png?raw=true)
