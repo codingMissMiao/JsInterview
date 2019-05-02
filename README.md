@@ -42,9 +42,9 @@
 
 <h2 id="2">值类型和引用类型</h2>
 题目分析
+
 ```js
 // 第2题值类型与引用类型的传递 
-
 function Person(name, age, salary){
     this.name = name;
     this.age = age;
