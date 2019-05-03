@@ -1,6 +1,7 @@
 * [题目分析]()
     * [day1 **函数作用域**](#1)
     * [day2 **值类型和引用类型**](#2)
+    * [day3 **如何将字符串转成驼峰命名**](#3)
 <h2 id="1">1.函数作用域</h2>
 ###  题目分析
 - 题目是下面控制台将打印什么？
@@ -95,3 +96,52 @@ console.log(p.name); // 'ls'
 
 #### [特别分享关于settimeout解释](https://mp.weixin.qq.com/s?__biz=MzI1MTE2NTE1Ng==&mid=2649515867&idx=1&sn=971a3e41da08ddf2da200d9d07af0fb0&chksm=f1efe7d0c6986ec688a746ece15f52c8df78bca37ca2609e75199f5c3fbbabd3fbcc00179885&scene=0&key=564c3e9811aee0abcc036cb111e6e7bdbe3938a8756b5bf3b98a1696b2f16c1e6e3a1b4af159d1ae1dd3e71ee5fae4e0b6655bd9f37cc81efb1174bf3ef39b43f874bc6a0482348422cc5245dfae917f&ascene=0&uin=MzIxNTY1NTU=&devicetype=iMac+MacBookPro11,1+OSX+OSX+10.12.1+build(16B2555)&version=12010210&nettype=WIFI&fontScale=100&pass_ticket=g24dIjS/70EF4QPCYwRMInMa218z6XagvevxLr5Mbzc=)
 (本小节完！)
+
+<h2 id ="3">如何使用驼峰命名</h2>
+
+### 这个题目主要考察对字符串的几个使用方法。好了，让我们看看题目把！
+```js 
+var foo = 'hello-world-javaScript';
+// var arr = foo.split('-');
+// for (var i = 0; i<arr.length; i++){
+//     if(i>0){
+//         // console.log(arr[i].charAt(0));
+//         // 把首字母转成大写
+//         // console.log(arr[i].charAt(0).toUpperCase());
+//         // 除掉第一个字母，然后进行拼接
+//         // console.log(arr[i].charAt(0).toUpperCase() + arr[i].substr(1,arr[i].length));
+//         // 重新赋值给arr[i]
+//         arr[i] = arr[i].charAt(0).toUpperCase() + arr[i].substr(1,arr[i].length);
+//         // console.log(arr[i]);
+//     }
+// } 
+// 已经成功的转成大写的数组形式  
+// console.log(arr)
+// 最后使用join 方式将数组转成字符串。
+// console.log(arr.join(''))  // 已经成功的转成驼峰命名
+// .charAt(0).toUppercase()+ arr[i].subStr(1,arr[i].length)  //拿到字符的第一个字母，转成大写。
+// 
+// 封装成函数  
+function toString(str){
+    // 第一步将字符串专程数组
+    var arr = str.split('-');
+    // 第一步循环遍历
+    for (var i=0 ; i < arr.length ; i ++ ){
+        // 因为要除去第一个单词不用遍历。 所以不要arr[0]
+        if (i > 0) {
+            // 一步到位，具体看上面演示
+            arr[i] = arr[i].charAt(0).toUpperCase() + arr[i].substr(1,arr[i].length);
+        }
+    }
+    // 将数组重新转成字符串
+    return arr.join(''); 
+}
+
+//test  
+console.log(toString(foo));
+```
+#### 本次方法用到了`str.split()`字符串分割方法。 字符串的`str.charAt()`方法获取字符串的第一个字母 。使用字符串的方式截取字符`str.substr()`。            还使用了arr.join(''). 将数组专程字符串。 
+
+[具体的字符串用法可参考](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/split)
+
+（本节完～）
