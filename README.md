@@ -2,6 +2,8 @@
     * [day1 **函数作用域**](#1)
     * [day2 **值类型和引用类型**](#2)
     * [day3 **如何将字符串转成驼峰命名**](#3)
+    * [day4 **中的冒泡排序**](#4)
+
 <h2 id="1">1.函数作用域</h2>
 ###  题目分析
 - 题目是下面控制台将打印什么？
@@ -145,3 +147,32 @@ console.log(toString(foo));
 [具体的字符串用法可参考](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/split)
 
 （本节完～）
+
+<h2 id="4">js中的冒泡排序</h2>
+
+### 如何解决js中的冒泡排序问题。
+```js
+//  如何对数组进行冒泡排序 
+
+var arr = [10,3,4,5,6,1,2,3];
+
+// 循环比较的轮数 
+for (var i=0; i<arr.length-1; i++){
+    // 每轮比较的次数 
+    for (var j=0; j<arr.length-1-i; j++){
+        //判断arr[j] 是否 大于arr[j+1] ,如果大于，两个数进行交换  
+        if (arr[j] > arr[j+1]) {
+            // 如果成立的话，交换两个数，需要借助第三方变量来实现 
+            // 第一步，将arr[j] 先存放到temp 中。
+            var temp = arr[j];
+            // 第二步。将arr[j+1]的值赋值给arr[j]// 
+            arr[j] = arr[j+1];
+            // 第三步，将存放的arr[j]的值交给arr[j+1]
+            arr[j+1] =temp;
+        }
+    }
+}
+// 到这已经完成了冒泡排序 
+console.log(arr);
+```
+
