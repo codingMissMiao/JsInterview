@@ -175,4 +175,8 @@ for (var i=0; i<arr.length-1; i++){
 // 到这已经完成了冒泡排序 
 console.log(arr);
 ```
-
+### 首先看懂这个图。
+![图解](https://github.com/yaogengzhu/JsInterview/blob/master/images/maopao.png?raw=true)
+### 分析图
+- 第一，对于冒泡比较，我们比较的轮数的轮数可以看出都是数组的长度减1 
+- 第二，分析每一轮比较的次数是多少？进行第二次循环。上面的代码已经分析得非常清楚。
