@@ -206,4 +206,7 @@ for (var i=0; i<arr.length/2; i++){
 }
 console.log(arr);
 ```
-**当然这个是最原始的反转方式来，数组已经提供来原生API可以使用**
+**当然这个是最原始的反转方式来，数组已经提供来原生API(`Array.prototype.reverse()`)可以使用**
+[参考链接点我](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/reverse)
+
+(本节完！)
