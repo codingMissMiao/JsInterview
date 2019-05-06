@@ -4,6 +4,7 @@
     * [day3 **如何将字符串转成驼峰命名**](#3)
     * [day4 **中的冒泡排序**](#4)
     * [day5 **数组的反转**](#5)
+    * [day6 **数组去重**](#6)
 
 <h2 id="1">1.函数作用域</h2>
 ###  题目分析
@@ -210,3 +211,34 @@ console.log(arr);
 [参考链接点我](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/reverse)
 
 (本节完！)
+
+<h2 id="6">数组去重</h2>
+
+### 看题分析
+```js
+// 业务要求数组去重 
+var arr = [1,3,4,5,,4,4,4,4,55,5,5];
+// 设置一个新的数组
+var newArr = [];
+// 首先将数组的第一个值赋值给newArr 
+newArr[0] = arr[0];
+// 循环遍历数组arr 
+for (var i=0 ; i< arr.length ; i++){
+    // 循环遍历数组是否和新数组中的一致 
+    for(var j=0; j<newArr.length; j++){
+        // 判断arr数组中是否有跟newArr相等的数,如果相等，break
+        // 进行下一个比较 
+        if (newArr[j] === arr[i]) {
+            break;
+        }
+        // 控制一轮比完。
+        if (j=== newArr.length - 1){
+            newArr.push(arr[i]);
+        }
+    }
+}
+console.log(newArr);
+```
+#### 总结，数组去重的方式多样，本人更加喜欢`Array.prototype.indexOf()`这种方式去重 。
+
+[关于indexOf去重，可以关注我的博客](https://www.cnblogs.com/yaogengzhu/p/10743177.html)
