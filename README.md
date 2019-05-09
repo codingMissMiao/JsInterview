@@ -247,6 +247,8 @@ console.log(newArr);
 <h2 id="7">1px物理像素如何实现</h2>
 
 ### 物理像素和css像素 
+
+### 方案1 通过js实现
 需要首先搞明白物理像素和css像素 
 - `设备像素（devie pixel` 是物理概念，指的是设备的物理像素。
 - `css像素 (CSS pixel)` CSS 像素是web编程中的概念，指的是Css中的逻辑像素。在Css中，长度可以分为两类，绝对单位以及相对单位。`px` 是一个相对的单位，相对的是设备的像素。
@@ -262,4 +264,36 @@ var metaNode = document.querySelect('meta[name="viewport"]');
 // 设置初始缩放比 
 metaNode.setAtttribute('content','widht=divce-width,inital-scale='+scale+'');
 ```
+### 方案2 通过css实现 
+直接看代码
+```css
+      .box {
+            position: relative;
+            width: 100px;
+            /*  */
+            height: 100px;
+        }
+        .box::before{
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 1px;
+            background-color: #000;
+        }
+        /* 媒体查询 */
+        @media screen and (-webkit-min-device-pixel-ratio:2){
+            .box::before{
+                transform: scaleY(0.5)
+            }
+        }
+        @media screen and (-webkit-min-device-pixel-ratio:3){
+            .box::before{
+                transform: scaleY(0.3333)
+            }
+        }
+```
+此类方式根据媒体查询来实现哦
+
 #### 以上方法就实现1px 物理像素。
