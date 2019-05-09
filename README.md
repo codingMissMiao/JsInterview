@@ -5,6 +5,7 @@
     * [day4 **中的冒泡排序**](#4)
     * [day5 **数组的反转**](#5)
     * [day6 **数组去重**](#6)
+    * [day7 **1px物理像素的实现**](#7)
 
 <h2 id="1">1.函数作用域</h2>
 ###  题目分析
@@ -242,3 +243,23 @@ console.log(newArr);
 #### 总结，数组去重的方式多样，本人更加喜欢`Array.prototype.indexOf()`这种方式去重 。
 
 [关于indexOf去重，可以关注我的博客](https://www.cnblogs.com/yaogengzhu/p/10743177.html)
+
+<h2 id="7">1px物理像素如何实现</h2>
+
+### 物理像素和css像素 
+需要首先搞明白物理像素和css像素 
+- `设备像素（devie pixel` 是物理概念，指的是设备的物理像素。
+- `css像素 (CSS pixel)` CSS 像素是web编程中的概念，指的是Css中的逻辑像素。在Css中，长度可以分为两类，绝对单位以及相对单位。`px` 是一个相对的单位，相对的是设备的像素。
+ 像素比 = 物理像素/css像素 
+- [具体参考点我](https://www.jianshu.com/p/af6dad66e49a)
+```js
+// 获取当前的物理像素
+var dpr = window.devicePixeRatio;
+// 设置物理的像素的缩放比 
+var scale = 1/dpr;
+// 获取meta  
+var metaNode = document.querySelect('meta[name="viewport"]');
+// 设置初始缩放比 
+metaNode.setAtttribute('content','widht=divce-width,inital-scale='+scale+'');
+```
+#### 以上方法就实现1px 物理像素。

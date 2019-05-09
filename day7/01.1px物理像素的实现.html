@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 100px;
+            /*  */
+            height: 100px;
+            border-bottom: 1px solid #000;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+       
+    </div>
+    <script>
+        // 获取屏幕中的宽度
+        let width = document.documentElement.clientWidth;
+        console.log(document.documentElement);
+        console.log(width);
+        let dpr = window.devicePixelRatio;
+        console.log(dpr);
+        let scale = 1 / dpr;
+        // 给meta设置像素比为1 
+        let metaNode = document.querySelector('meta[name="viewport"]');
+        // metaNode.setAttribute("content","width=device-width, initial-scale=`${scale}`");
+        console.log(metaNode);
+        metaNode.setAttribute('content', 'width=device-width, initial-scale=' + scale + '');
+        //设置完成之后，width 和 高度的单位不能设置为 px 。而设置为rem为单位;
+    </script>
+
+
+</body>
+
+</html>
