@@ -300,7 +300,9 @@ metaNode.setAtttribute('content','widht=divce-width,inital-scale='+scale+'');
 #### 以上方法就实现1px 物理像素。
 
 <h2 id="8"> 多种方式让元素水平垂直居中 </h2>
+
  本次采用了四种方式，看代码
+
  ```css 
   .box1{
             width: 400px;
@@ -335,7 +337,9 @@ metaNode.setAtttribute('content','widht=divce-width,inital-scale='+scale+'');
             
         }
 ``` 
+
 ### 总结： 上述方式用了四种方式，其中三种都是采用了`position` 方式。。在使用方式2的时候，记得对`margin:atuo`。不然没法实现。。第四种方式是`flex`布局方式。还有一种比较老版本的的居中方式是：
+
 ```css
 *{
     display:-webkit-box;
