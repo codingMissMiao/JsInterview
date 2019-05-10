@@ -6,6 +6,7 @@
     * [day5 **数组的反转**](#5)
     * [day6 **数组去重**](#6)
     * [day7 **1px物理像素的实现**](#7)
+    * [day8 **多种方式让元素水平垂直居中**](#8)
 
 <h2 id="1">1.函数作用域</h2>
 ###  题目分析
@@ -297,3 +298,50 @@ metaNode.setAtttribute('content','widht=divce-width,inital-scale='+scale+'');
 此类方式根据媒体查询来实现哦
 
 #### 以上方法就实现1px 物理像素。
+
+<h2 id="8"> 多种方式让元素水平垂直居中 </h2>
+ 本次采用了四种方式，看代码
+ ```css 
+  .box1{
+            width: 400px;
+            height: 400px;
+            background-color: red;
+            /* 方式1 2 3 需要解开 */
+            /* position: relative; */
+            /* 方式4 */
+            display: flex;
+            /* 水平方向上居中 */
+            justify-content: center;
+            /* 垂直方向向居中 */
+            align-items: center;
+        }
+        .box2{
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+            /* position: absolute; */
+            /* 方式1 */
+            /* top: 50%;
+            left: 50%;
+            margin-left: -50px;
+            margin-top: -50px; */
+            /* 方式2 */
+            /* left: 0;top:0; right: 0;bottom: 0;
+            margin:auto; */
+            /* 方式3 */
+            /* top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%); */
+            
+        }
+``` 
+### 总结： 上述方式用了四种方式，其中三种都是采用了`position` 方式。。在使用方式2的时候，记得对`margin:atuo`。不然没法实现。。第四种方式是`flex`布局方式。还有一种比较老版本的的居中方式是：
+```css
+*{
+    display:-webkit-box;
+    -webkit-box-pack:center;
+    -webkit-box-align:center;
+}
+```
+
+（ 本节完！）
