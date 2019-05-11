@@ -7,6 +7,7 @@
     * [day6 **数组去重**](#6)
     * [day7 **1px物理像素的实现**](#7)
     * [day8 **多种方式让元素水平垂直居中**](#8)
+    * [day **利用css实现三角形**](#9)
 
 <h2 id="1">1.函数作用域</h2>
 ###  题目分析
@@ -349,3 +350,27 @@ metaNode.setAtttribute('content','widht=divce-width,inital-scale='+scale+'');
 ```
 
 （ 本节完！）
+
+<h2 id="9">利用css实现三角形</h2>
+
+### 如何利用`css`实现▶️三角形 直接上代码
+
+```css
+.box{
+    width:0;
+    height:0;
+    border:100px solid;
+    border-top-color:red;
+    /* border-right-color:green; */
+    /* border-bottom-color:pink; */
+    /* border-left-color:purple; */
+    border-right-color:transparent;
+    border-bottom-color:transparent;
+    border-left-color:transparent;
+}
+```
+### 实现原理 
+利用边框的特点。而且每一条边框都可以设置不同的大小，或者颜色等。去掉中心内容，如果设置不同的颜色，就可以实现四个三角形。如果只需得到一个三角
+形，就给其他的三个边都设置`transparent`。
+
+(本节完！)
