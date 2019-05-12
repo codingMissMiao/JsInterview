@@ -7,7 +7,8 @@
     * [day6 **数组去重**](#6)
     * [day7 **1px物理像素的实现**](#7)
     * [day8 **多种方式让元素水平垂直居中**](#8)
-    * [day **利用css实现三角形**](#9)
+    * [day9 **利用css实现三角形**](#9)
+    * [day10 **如何做rem适配**](#19)
 
 <h2 id="1">1.函数作用域</h2>
 ###  题目分析
@@ -374,3 +375,40 @@ metaNode.setAtttribute('content','widht=divce-width,inital-scale='+scale+'');
 形，就给其他的三个边都设置`transparent`。
 
 (本节完！)
+
+<h2 id="10">如何利用rem做移动端适配<h2>
+
+### rem移动端适配 
+
+#### 什么是rem ?
+rem（font size of the root element）是指相对于根元素的字体大小的单位。简单的说它就是一个相对单位。看到rem大家一定会想起em单位，em（font size of the element）是指相对于父元素的字体大小的单位。它们之间其实很相似，只不过一个计算的规则是依赖根元素一个是依赖父元素计算。
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 ">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div{
+            width: 1rem;
+            height: 1rem;
+            background-color:red;
+        }
+    </style>
+</head>
+<div></div>
+<body>
+    <script>
+        var ScreenWidth = document.documentElement.clientWidth
+        // console.log(ScreenWidth)    
+        var htmlNode = document.getElementsByTagName('html')[0]
+        // console.log(htmlNode)
+        // htmlNode.style.backgroundColor = 'red'
+        htmlNode.style.fontSize = ScreenWidth + 'px'
+    </script>
+</body>
+</html>
+```
