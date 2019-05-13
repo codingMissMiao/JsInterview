@@ -9,6 +9,7 @@
     * [day8 **多种方式让元素水平垂直居中**](#8)
     * [day9 **利用css实现三角形**](#9)
     * [day10 **如何做rem适配**](#10)
+    * [day11 **js综合题**](#11)
 
 <h2 id="1">1.函数作用域</h2>
 ###  题目分析
@@ -412,3 +413,65 @@ rem（font size of the root element）是指相对于根元素的字体大小的
 </body>
 </html>
 ```
+
+(本小节完～)
+
+<h2 id="11">js综合题<h2>
+
+### js综合题目（直接看代码和正确答案）
+```js
+function Foo (){
+    getName = function () {
+        console.log(1)
+    }
+    return this 
+}
+Foo.getName = function () { console.log(2)}
+Foo.prototype.getName = function() { console.log(3) }
+var getName = function () {console.log(4)}
+function getName() { console.log(5) }
+// 输出结果 
+Foo.getName()   //2 👌
+getName() // 5 ❌   4  
+Foo().getName() // ❌ (Foo()).getName()  ----> window.getName() 1
+getName() // 5 ❌  1
+new Foo.getName() //2 👌  new(Foo.getName)() ----->> new (function(){console.log(2)})  2
+new Foo().getName()// ❌  (new Foo()).getName() ---> foo.getName()   3
+new new Foo().getName() // ❌ new ((new Foo()).getName)()  --->  new (foo.getName)()  ---> new (function(){ console.log(3)})() //3
+```
+### js代码解析  
+
+```js
+function Foo (){
+    getName = function () {
+        console.log(1)
+    }
+    return this 
+}
+// 变量声明的提升 
+// 和函数自定义名字冲突
+// var getName    
+// 函数的提升
+// 变量和函数提后，继续从⬆️到⬇️执行代码， 发现后面的函数getName,  会重新赋值
+// function getName() { console.log(5) }
+Foo.getName = function () { console.log(2)}
+Foo.prototype.getName = function() { console.log(3) }
+getName = function () {console.log(4)}
+```
+
+### 总结 （本次题目考察）
+```js
+/**
+ *  变量提升和函数提升   
+ * 1. 函数提升（整体的提升）
+ * 2. var 变量提升(声明的提升)   
+ * 3. 重新赋值  
+ * 4. 变量的查找规则，沿着作用域链去找
+ * 5. 点的优先级关系最高
+ * 6. 实例对象找属性。隐式原型链查找～
+ * 7. 变量和函数自定义冲突，保留函数
+ * 
+ */
+```
+
+(本节完！)
