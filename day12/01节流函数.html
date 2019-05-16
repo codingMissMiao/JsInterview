@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        html,body{
+            height: 10000px;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        function throttle(fn, delay){
+            // fn 执行函数 ，  delay 延迟时间  
+            // 设置一个时间变量。 记录上一次时间 
+            let lastTime = 0
+            return  function(){
+                // 记录当前的时间戳 
+                let currentTime = Date.now()
+                //判断当前时间减去记录上一次的时间，是否大于延迟时间 
+                if( currentTime - lastTime > delay){
+                    fn.call(this)
+                    // 将当前时间赋值给上一次 
+                    lastTime = currentTime 
+                }
+            }
+        }    
+
+        // test 
+        document.addEventListener('scroll',throttle(function(){console.log('被触发了'+ Date.now())},1000))
+    </script>
+</body>
+</html>
