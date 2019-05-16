@@ -10,6 +10,7 @@
     * [day9 **利用css实现三角形**](#9)
     * [day10 **如何做rem适配**](#10)
     * [day11 **js综合题**](#11)
+    * [day12 **函数节流和防抖**](#12)
 
 <h2 id="1">1.函数作用域</h2>
 ###  题目分析
@@ -475,3 +476,29 @@ getName = function () {console.log(4)}
 ```
 
 (本节完！)
+
+<h2 id= 12>函数的节流和防丢<h2>
+
+### 函数的节流 
+函数节流的含义： 让被执行函数在指定的时间内被触发，而不是时刻被触发。对于时刻被触发的函数有限制的作用，这样做的好处可以极大的提升浏览器的性能。
+
+```js 
+function throttle(fn, delay){
+            // fn 执行函数 ，  delay 延迟时间  
+            // 设置一个时间变量。 记录上一次时间 
+            let lastTime = 0
+            return  function(){
+                // 记录当前的时间戳 
+                let currentTime = Date.now()
+                //判断当前时间减去记录上一次的时间，是否大于延迟时间 
+                if( currentTime - lastTime > delay){
+                    fn.call(this)
+                    // 将当前时间赋值给上一次 
+                    lastTime = currentTime 
+                }
+            }
+        }    
+        // test 
+        document.addEventListener('scroll',throttle(function(){console.log('被触发了'+ Date.now())},1000))
+``` 
+### 从这个代码中，如果不理解的话，我们可以跳转[点我](https://github.com/yaogengzhu/life-share#14), 还是具有一定的参考性的～
