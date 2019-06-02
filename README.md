@@ -11,6 +11,7 @@
     * [day10 **如何做rem适配**](#10)
     * [day11 **js综合题**](#11)
     * [day12 **函数节流和防抖**](#12)
+    * [day13 什么是跨域？如何解决跨域](#13)
 
 <h2 id="1">1.函数作用域</h2>
 ###  题目分析
@@ -502,3 +503,36 @@ function throttle(fn, delay){
         document.addEventListener('scroll',throttle(function(){console.log('被触发了'+ Date.now())},1000))
 ``` 
 ### 从这个代码中，如果不理解的话，我们可以跳转[点我](https://github.com/yaogengzhu/life-share#14), 还是具有一定的参考性的～
+
+<h2 id="13">什么是跨域</h2>
+
+### 什么是跨域？解决跨域的方法 
+
+同源策略 
+- 是浏览器的安全策略
+- 域名，协议，端口号必须一致 
+
+跨域
+- 违背同源策略，就会产生跨域 
+
+如何解决跨域 
+- jsonp (前端实现)
+- cors (服务器代码模式) CORS是一个W3C标准，全称是"跨域资源共享"（Cross-origin resource sharing）
+
+jsonp 
+- 利用了浏览器的`script`标签,动态创建script
+```js
+// 创建script 
+var script = document.createElement('script');
+// 设置回调函数 
+function getData(data){
+    // 数据请求回来时触发 
+    console.log(data);
+}
+// 设置script的src属性，设置请求地址 
+script.src = '请求地址';
+// 让script生效 
+document.body.appendChild(script);
+```
+
+
