@@ -667,7 +667,7 @@ js引擎在代码正式执行的之前会做一个预处理的工作
 
 依据 
 - var  将var 后面的变量先定义但是不赋值 
-- function() {}  // 提前该函数
+- function() {}  // 提升该函数
 
 ```js
 console.log(a) ;  // undefined;
@@ -701,7 +701,7 @@ function fun(){
 ```js
     ECObj = {
         变量对象:{'变量',' 函数','全局：window','局部：抽象的确实存在的' },
-        scropeChain: '父级作用域链 + 当前的变量对象',
+        scopeChain: '父级作用域链 + 当前的变量对象',
         this:{ window || '调用其对象' }
     }
 ```
