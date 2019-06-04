@@ -799,7 +799,7 @@ console.log('-----------end----------');
 
 (本节完！)
 
-<h2 di=20>axios的使用</h2>
+<h2 id=20>axios的使用</h2>
 
 ### 什么是axios
 `axios`是基于`promise`用于浏览器和nodejs的一个http客户端，主要是用于向后台发送请求的，还有就是在请求中做更多的控制 
@@ -820,5 +820,3 @@ console.log('-----------end----------');
 axios.get('url').then( () =>{})
 .catch(()=>{})
 ``` 
-
-
