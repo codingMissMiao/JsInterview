@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 1。元素绑定事件，方法中的this是否是当前的操作元素 
+        //2。方法名前卖弄是否有点，有点，点前面是谁this就是谁，没有this是window（严格模式下是undefined）
+        // 3。构造函数执行，方法体中的this是当前类的一个实例 
+        
+        var fullName = 'language'
+        var obj = {
+            fullName:'javascript',
+            props:{
+                getFullName:function(){
+                    return this.fullName
+                }
+            }
+        } 
+        console.log(obj.props.getFullName()) // javascript
+        //  =》 this.obj.prop   ===> obj.prop.fullName  ====> undefined 
+        var test = obj.props.getFullName    
+        console.log(test()) // language
+
+        // 
+
+
+        var name = 'window';
+        var Tom = {
+            name:'Tom',
+            show:function(){
+                console.log(this.name)
+            },
+            wait:function(){
+                var fun = this.show;
+                fun();
+            }
+        }
+        Tom.wait();     // Tom.show().this.name   // undefined
+    </script>
+</body>
+</html>
