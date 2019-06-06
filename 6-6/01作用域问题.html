@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /**
+         *   全局作用域问题  (变量提升)
+         *  1.不是私有变量，向上一级作用域查找 
+         *  2. 没有var变量不会提升 
+         * 
+         * */
+
+        // console.log(a);
+        // a = 2;
+        // function fn() {
+        //     console.log(a);
+        //     a = 12;
+        // }
+        // fn();
+        // console.log(a);    //  a is not defined 
+        // 题2 
+        var foo = 1; 
+        function bar(){
+            // 私有作用域  
+            // 私有型参赋值  
+            // 变量提升  (不管条件是否成立，都要进行变量提升新浏览器中对与判断体中的函数只是提前声明)
+            var foo // undefiend 
+            if(!foo){
+                var foo = 10;
+            }
+            console.log(foo);
+        }
+        bar();
+        // 题目分析 
+        /**
+         * 全局下变量提升  
+         * 
+         * 
+         * 
+         * 
+        */
+    </script>
+</body>
+
+</html>

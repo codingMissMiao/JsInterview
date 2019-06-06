@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 弄懂形成私有作用域和 形成私用作用域的两个作用步骤。
+        var n = 0;
+        function a (){
+            var n = 10;
+
+            // var n , b (函数) 
+            function b(){
+                n++;
+                console.log(n);
+            }
+            b();
+            return b;
+        }    
+        var c = a();   // 11
+        c(); // 12
+        console.log(n); // 0 
+        /**
+         * 全局作用域  
+         * 记住私有作用域
+         * 1. 第一步：型参赋值 
+         * 2. 第二步：变量提升  
+         * 
+         * 
+         * 函数形成的私有作用域。
+         * 向创建自己的私用作用域查找。
+         * 
+         * 不销毁的作用域(闭包)
+         * 1.保存作用
+         * 2.保护作用
+        */
+       
+    </script>
+</body>
+</html>

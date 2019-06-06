@@ -25,10 +25,7 @@
         //  =》 this.obj.prop   ===> obj.prop.fullName  ====> undefined 
         var test = obj.props.getFullName    
         console.log(test()) // language
-
         // 
-
-
         var name = 'window';
         var Tom = {
             name:'Tom',
@@ -36,11 +33,15 @@
                 console.log(this.name)
             },
             wait:function(){
-                var fun = this.show;
-                fun();
+                var fun = this.show;   // Tom.show  
+                fun();  // this:window   ===> window.name ---- 'window'
             }
         }
         Tom.wait();     // Tom.show().this.name   // undefined
+
+        // ===> this:Tom ==> Tom.show       fun.show()
+
+        
     </script>
 </body>
 </html>
