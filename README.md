@@ -19,7 +19,7 @@
     * [day18 宏任务和微任务](#18)
     * [day19 vue组件的传值方式](#19)
     * [day20 axios的使用](#20)
-*[issue]()
+* [issue]()
     * [逻辑或和逻辑与](https://github.com/yaogengzhu/JsInterview/issues/2)
     
 <h2 id="1">1.函数作用域</h2>
