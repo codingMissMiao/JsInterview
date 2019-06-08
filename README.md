@@ -21,6 +21,7 @@
     * [day20 axios的使用](#20)
 * [issue]()
     * [逻辑或和逻辑与](https://github.com/yaogengzhu/JsInterview/issues/2)
+    * [如何分析一个作用域题目]()
     
 <h2 id="1">1.函数作用域</h2>
 
