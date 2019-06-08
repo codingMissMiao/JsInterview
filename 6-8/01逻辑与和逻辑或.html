@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 条件判断过程中，会使用逻辑与和逻辑或
+        if (1===1 && 2=== 2){
+            // && 表示两个条件都成立
+            // || 只要有一个条件成立就成立
+        }
+        // 在赋值操作中，有时也会用到
+        var a =1 || 2 ;  // 首先验证1 为真假，如果1 为真，则将1 赋值给a ，如果为假 ，则将2 赋值给a 
+        var b = 1 && 2 ; // 首先验证1 的真假，如果1为真，则将2 的值赋值给a，如果为假，则将1的值赋值给a 
+        console.log(a , b)
+
+        function fn( x, y ){
+            var x = x || 0 ; 
+            var y = y || 1 ;
+            return x + y;
+        }
+        console.log(fn (10))
+
+        // 把一个函数作用一个参数传递给一个函数，叫做回调函数 
+        // 逻辑与的用法  
+        function fn2(callback){
+            // 
+            if(typeof callback === 'function'){
+                callback();
+            }
+            // 简写方案 
+            callback && callback();
+        }
+        fn2(function(){})
+
+        // 逻辑与和逻辑或的混合应用模式  
+        // 元算优先级问题  ， 逻辑与的优先级高于逻辑或
+
+        //4. 逻辑或的实战应用 ：形参赋值默认值，形参初始化  
+        // 在es6中语法规范中，可以直接给形参设置默认值 
+
+        function f1(x= 9){
+            console.log(x)
+        }
+        f1(false)
+
+    </script>
+</body>
+</html>
