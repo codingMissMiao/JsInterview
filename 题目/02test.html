@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var num = 10;//(30) (51)
+        var obj = { num: 20 };  // obj= aaff00 => {num:20,fn:bbffoo}
+        obj.fn = (function (num) {
+            /**
+             * 
+             * num = 10 (20) (21)
+             * this ---> window 
+            */
+            num = this.num + 10;
+            this.num = num + 10;
+            return function () { // =>bbff00 
+                // fn()
+                /**第一次执行
+                 * this ===> window 
+                 * 
+                 * this.num = 30 
+                 * num = 20  ===> ++num=21
+                 * 
+                */
+               /**
+                * 第二次执行 
+                * obj.fn()
+                * 
+                * this ===> obj
+                * this.num = 20 ;
+                * ++num = 22;
+                * 
+                * 
+               */
+                this.num += ++num;  // ===> 51  // ==> 42
+            }
+        }(num));
+        var fn = obj.fn;
+        fn();
+        obj.fn();
+        console.log(num, obj.num);    
+    </script>
+</body>
+
+</html>
