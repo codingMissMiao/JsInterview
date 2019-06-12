@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=å, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /**
+         *  1 和 new Number(1) 的区别 ：
+         * 前面是基本数据类型，后面是引用数据类型（对象） 
+         * 相同点：都是Number的实例。 
+         * 
+         * */
+        function Fn() {
+            this.x = 100;
+            this.y = 200;
+            this.getX = function () {
+                console.log(this.x);
+            }
+        }
+        Fn.prototype.getX = function () {
+            console.log(this.x);
+        }
+        Fn.prototype.getY = function () {
+            console.log(this.y);
+        }
+        var f1 = new Fn;
+        var f2 = new Fn;
+    </script>
+</body>
+
+</html>
