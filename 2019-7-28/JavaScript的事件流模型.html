@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // js 中的事件流模型 
+        /***
+         *  事件冒泡： 事件开始由最具体的元素接收，然后逐级向上级传递
+         *  事件捕捉： 事件由最不具体的节点接收，然后逐级向下，一直到具体的
+         *  DOM事件流： 三个阶段： 事件捕捉 目标阶段 事件冒泡
+        //  *
+        */
+        var a
+        console.log(a)
+        console.log(b)  // 报错
+        // var b = 10
+        b = 10
+        console.log(typeof b)
+        /**
+         *  undefined 会还三种情况产生 
+         *  定义了变量没有赋值  
+         *  一个对象中，不存在的属性或者方法
+         *  一个数组中没有被赋值的元素
+         *  一个函数没有返回值 
+         * 
+         * /
+    </script>
+</body>
+
+</html>
